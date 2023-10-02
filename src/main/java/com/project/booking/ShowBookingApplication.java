@@ -27,11 +27,11 @@ public class ShowBookingApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		System.out.println("Welcome to Show Booking App");
+		System.out.println("Please enter your command!");
 
 		// Initialize the scanner for user input
 		Scanner scanner = new Scanner(System.in);
 		do {
-			System.out.println("Please enter your command!");
 			try {
 				String[] commandline = scanner.nextLine().split(" ");
 				switch (commandline[0].toLowerCase()) {
