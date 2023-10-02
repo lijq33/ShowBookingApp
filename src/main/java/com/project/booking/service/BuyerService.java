@@ -68,6 +68,17 @@ public class BuyerService {
             throw new Exception("no such show");
         }
 
+        if (phoneNumber.isEmpty()) {
+            throw new Exception("Please enter a valid phone number.");
+        }
+
+        Optional<Ticket> existingTicket = show.getTickets().stream().filter(t -> t.getPhoneNumber()
+                .equals(phoneNumber)).findFirst();
+
+        if (existingTicket.isPresent()) {
+            throw new Exception("Phone number: " + phoneNumber + " has an existing booking.");
+        }
+
         String[] seatArray = seats.split(",");
         Map<String, Seat> availableSeats = getAvailableSeats(showNumber);
         List<Seat> seatsToBook = new ArrayList<>();

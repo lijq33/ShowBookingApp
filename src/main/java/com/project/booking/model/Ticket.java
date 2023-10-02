@@ -20,6 +20,7 @@ public class Ticket {
     @Setter
     private Long ticketNumber;
     @Setter
+    @Getter
     private String phoneNumber;
     @Setter
     private List<Seat> seats;
