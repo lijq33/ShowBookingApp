@@ -8,6 +8,7 @@ import lombok.Setter;
 @Getter
 public class Ticket {
 
+    public Ticket() {}
     public Ticket(Long ticketNumber, String phoneNumber, List<Seat> seats, Date bookingTime, Show show) {
         this.ticketNumber = ticketNumber;
         this.phoneNumber = phoneNumber;
@@ -16,6 +17,7 @@ public class Ticket {
         this.bookingTime = bookingTime;
     }
 
+    @Setter
     private Long ticketNumber;
     @Setter
     private String phoneNumber;

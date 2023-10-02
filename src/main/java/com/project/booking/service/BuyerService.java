@@ -27,10 +27,21 @@ public class BuyerService {
         return show.getSeats()
                 .stream()
                 .filter(s -> !s.isOccupied())
-                .collect(Collectors.toMap(Seat::getSeatNumber, seat -> seat));
+                .collect(Collectors.toMap(
+                        Seat::getSeatNumber,
+                        seat -> seat,
+                        (existing, replacement) -> existing,
+                        TreeMap::new
+                ));
     }
 
     public void listAvailability(long showNumber) throws Exception {
+        Show show = showService.getShowById(showNumber);
+
+        if (show == null) {
+            throw new Exception("no such show");
+        }
+
         Map<String, Seat> availableSeats = getAvailableSeats(showNumber);
 
         if (availableSeats.isEmpty()) {

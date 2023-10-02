@@ -91,7 +91,7 @@ public class ShowBookingApplication implements CommandLineRunner {
 						break;
 				}
 			} catch (Exception e) {
-				System.out.println(e);
+				System.out.println(e.getMessage());
 			}
 		} while (scanner.hasNextLine());
 		scanner.close();

@@ -23,6 +23,7 @@ public class AdminService {
         if (numOfSeats > 10) {
             throw new Exception("Number of seats must be 10 or less.");
         }
+        // Row validation
         if (numOfRows > 26) {
             throw new Exception("Number of rows must be 26 or less.");
         }
@@ -35,8 +36,8 @@ public class AdminService {
             }
         }
         Show show = new Show(showNumber, seats, cancellationWindow);
-
-        return showService.setupShow(show);
+        showService.setupShow(show);
+        return show;
     }
 
     public void view(Long showNumber){
@@ -59,7 +60,7 @@ public class AdminService {
             System.out.println("Ticket Number: " + ticket.getTicketNumber());
             System.out.println("Buyer Phone Number: " + ticket.getPhoneNumber());
 
-            System.out.println("Seats booked: ");
+            System.out.print("Seats booked: ");
 
             StringBuilder result = new StringBuilder();
             for (Seat seat : ticket.getSeats()) {

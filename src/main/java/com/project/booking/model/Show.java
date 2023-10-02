@@ -9,11 +9,11 @@ import java.util.List;
 @Getter
 public class Show {
 
+    public Show() {}
     public Show(Long id, List<Seat> seats, int cancellationWindowMinutes) {
         this.id = id;
         this.seats = seats;
         this.cancellationWindowMinutes = cancellationWindowMinutes;
-        tickets = new ArrayList<>();
     }
 
     @Setter
@@ -21,9 +21,10 @@ public class Show {
     @Setter
     private List<Seat> seats;
     @Setter
+    @Getter
     private int cancellationWindowMinutes;
     @Getter
     @Setter
-    private List<Ticket> tickets;
+    private List<Ticket> tickets = new ArrayList<>();
 }
 
